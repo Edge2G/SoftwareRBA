@@ -79,12 +79,13 @@
     			</tr>
   			</thead>
   			<tbody>
-    			<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-    			</tr>
+					<?php foreach($result as $row) {?>
+          <tr>
+          <th scope="row"> <?php echo $row->id; ?></th>
+          <td><?php echo $row->nombre; ?></td>
+          <td><?php echo $row->password; ?></td>
+          <td><?php echo $row->mail; ?></td>
+          <?php } ?>
  			 </tbody>
 		</table>
 	</div>

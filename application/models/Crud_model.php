@@ -14,4 +14,10 @@ class Crud_model extends CI_Model {
         );
         $this->db->insert('usuarios', $data);
     }
+    
+    function getAlldata(){
+        $query = $this->db->query('SELECT * FROM usuarios');
+        return $query ->result();
+
+    }
 }
