@@ -20,4 +20,19 @@ class Crud_model extends CI_Model {
         return $query ->result();
 
     }
+
+    function getData($id){
+        $query = $this->db->query('SELECT * FROM usuarios WHERE `id` = '.$id);
+        return $query->row();
+    }
+
+    function updateData($id){
+        $data = array(
+            'nombre' => $this->input->post('nombre'),
+            'password' => $this->input->post('password'),
+            'mail' => $this->input->post('mail')
+        );
+        $this->db->where('id', $id);
+        $this->db->update('usuarios', $data);
+    }
 }

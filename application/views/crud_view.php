@@ -25,7 +25,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Agregar Usuario</a>
+      <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Crear Usuario</a>
     </div>
   </div>
 </nav>
@@ -38,7 +38,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Agregar Usuario</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Crear Usuario</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -58,12 +58,11 @@
                     <input type="email" class="form-control" name="mail" aria-describedby="emailHelp" placeholder="Escriba una direccion de correo electronico">
                     <small id="emailHelp" class="form-text text-muted">Los correos no son compartidos con nadie.</small>
                   </div>
-                  <button type="submit" class="btn btn-primary" value="save">Agregar</button>
+                  <button type="submit" class="btn btn-primary" value="save">Crear</button>
                 </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
@@ -76,6 +75,7 @@
 					<th scope="col">Nombre</th>
 					<th scope="col">Contraseña</th>
 					<th scope="col">Mail</th>
+          <th scope="col">Accion</th>
     			</tr>
   			</thead>
   			<tbody>
@@ -85,6 +85,7 @@
           <td><?php echo $row->nombre; ?></td>
           <td><?php echo $row->password; ?></td>
           <td><?php echo $row->mail; ?></td>
+          <td> <a href="<?php echo site_url('CrudController/edit');?>/<?php echo $row->id;?>"> Editar </a> | Eliminar</td>
           <?php } ?>
  			 </tbody>
 		</table>
