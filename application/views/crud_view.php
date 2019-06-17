@@ -85,7 +85,8 @@
           <td><?php echo $row->nombre; ?></td>
           <td><?php echo $row->password; ?></td>
           <td><?php echo $row->mail; ?></td>
-          <td> <a href="<?php echo site_url('CrudController/edit');?>/<?php echo $row->id;?>"> Editar </a> | Eliminar</td>
+          <td> <a href="<?php echo site_url('CrudController/edit');?>/<?php echo $row->id;?>"> Editar </a> | 
+          <a href="<?php echo site_url('CrudController/delete');?>/<?php echo $row->id;?>">Eliminar</a></td>
           <?php } ?>
  			 </tbody>
 		</table>
