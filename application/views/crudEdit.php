@@ -30,6 +30,8 @@
   </div>
 </nav>
     <div class="container">
+    <br>
+    <br>
     <form method="post" action="<?php echo site_url('CrudController/update')?>/<?php echo $row->id?>">
         <div class="form-group">
         <label for="exampleInputUsername1">Nombre de Usuario</label>
