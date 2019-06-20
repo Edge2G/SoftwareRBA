@@ -36,21 +36,6 @@
     <img src="http://localhost/SoftwareRBA/assets/img/login/login_box.png" class="login_box">
     <div class="container">
     <div class="col-sm-4 offset-sm-4 col-xl-3 text-center">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
         <form class="form-inlin justify-content-center">
         <div class="form-group">
         <label for="InputUsername">Nombre de usuario</label>
