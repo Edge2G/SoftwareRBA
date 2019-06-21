@@ -22,12 +22,19 @@
   <a class="navbar-brand" href="#">Menu de administracion</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Crear Usuario</a>
     </div>
+   
   </div>
+
+
+
+
+
 </nav>
 	<div class="container">
   <br>
