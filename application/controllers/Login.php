@@ -32,13 +32,15 @@ class Login extends CI_Controller {
 			$this->session->set_userdata($data);
 
 			if($this->session->userdata("rol") == '1'){ //admin.
-				redirect('CrudController');
+				redirect('crudController');
 			}elseif($this->session->userdata("rol") == '2'){//Jefe de finanzas 
+				redirect('producController');
+			}elseif($this->session->userdata("rol") == '3'){//Jefe de Inventario 
 				redirect('producController');
 			}else{
 				redirect('Welcome');
 			}
-			
+
 		}
 	}
 

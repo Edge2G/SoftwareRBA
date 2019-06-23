@@ -25,7 +25,7 @@ class producController extends CI_Controller {
 
 		if($this->session->userdata('login_') !== TRUE){
       		redirect('Login/login');
-      		}elseif ($this->session->userdata('rol')!=2) {
+      		}elseif ($this->session->userdata('rol')!=3) {
       		redirect($this->uri->uri_string());
       	}
    
@@ -40,9 +40,6 @@ class producController extends CI_Controller {
 		$this->productModel->ingresarData();
 		redirect("producController");
 	}
-
-
-
 	public function create(){
 		$this->productModel->createData();
 		redirect("producController");
@@ -62,5 +59,10 @@ class producController extends CI_Controller {
 		$this->productModel->deleteData($id);
 		redirect("producController");
 	}
+	public function Reporte(){
+		$data['result1'] = $this->productModel->reporteData();
+		$this->load->view("reportView",$data);
+		//redirect("reportView",$data);
+	}
 
-
+}
