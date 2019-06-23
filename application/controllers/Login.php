@@ -29,7 +29,7 @@ class Login extends CI_Controller {
 				'login' => TRUE
 			);
 
-			$this ->session->set_userdata($data);
+			$this->session->set_userdata($data);
 			redirect('CrudController');
 		}
 	}
