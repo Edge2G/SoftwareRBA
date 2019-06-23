@@ -19,7 +19,7 @@
   <body>
 	<!-- As a link -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Menu de Inventario</a>
+  <a class="navbar-brand"data-toggle="link" href="<?php echo site_url('producController/index')?>">Menu de Inventario</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -28,13 +28,9 @@
 
       <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Crear Producto</a>
       <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal2" href="#">Ingresar Producto</a>
+      <a class="nav-item nav-link" data-toggle="link" data-target="#exampleModal3" href="<?php echo site_url('producController/Reporte')?>">Generar Reporte</a>
     </div>
-  </div>
-
-      <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Ingresar Producto</a>
-    </div>
-  </div>
-  <div class="navbar-collapse collapse w-200 order-3 dual-collapse2">
+    <div class="navbar-collapse collapse w-200 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('login/Logout');?>">Cerrar Sesion</a>
@@ -96,9 +92,11 @@
                   <form method="post" action="<?php echo site_url('producController/ingresar')?>">
                   <div class="form-group">
                     <label for="InputNombrePorducto">Nombre Producto</label>
-                    <select name="nombre_producto">
-                      <option value="'cuchufli'" >cuchufli</option>
-                      <option  value="'manjar'">manjar</option>
+                    <select name="id_producto">
+                      <option value="8" >cuchufli</option>
+                      <option  value="9">manjar</option>
+                      <option value="10">harina</option>
+                      <option value="11">merengue</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -110,35 +108,14 @@
                     <input type="date" class="form-control" name="fecha_ingreso" placeholder="Escriba el nombre del producto">
                   </div>
                   <button type="submit" class="btn btn-primary" value="save">Ingresar</button>
-                  </form>            </div>
-
-                    <input type="text" class="form-control" name="nombre" placeholder="Escriba aqui la cantidad a ingresar">
-                  </div>
-                  <div class="form-group">
-                    <label for="InputTipo">ID Tipo de Producto</label>
-                    <input type="number" class="form-control" name="id_tipo_producto" aria-describedby="emailHelp" placeholder="Escriba una la fecha de ingreso del productro">
-                  </div> 
-                  <div class="form-group">
-                    <label for="InputCantidad">Cantidad</label>
-                    <input type="number" class="form-control" name="cantidad" aria-describedby="emailHelp" placeholder="Escriba una la fecha de ingreso del productro">
-                  </div>
-                  <div class="form-group">
-                    <label for="InputFecha">Fecha de ingreso</label>
-                    <input type="date" class="form-control" name="fecha_ingreso" aria-describedby="emailHelp" placeholder="Escriba una la fecha de ingreso del productro">                   
-                  </div>
-                  <button type="submit" class="btn btn-primary" value="save">Crear</button>
-                  </form>
-            </div>
-
+                  </form>         
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
-		<br>
-
-
+    </div>
 
 		<table class="table">
   			<thead>
@@ -146,28 +123,11 @@
 					<th scope="col">Nombre</th>
 					<th scope="col">Tipo Producto</th>
           <th scope="col">Accion</th>
-
-		<table class="table">
-  			<thead>
-    			<tr>
-      		<th scope="col">ID</th>
-					<th scope="col">Nombre</th>
-					<th scope="col">Tipo</th>
-          <th scope="col">Cantidad</th>
-          <th scope="col">Fecha ingreso</th>
-    			</tr>
   			</thead>
-  			<tbody>
 					<?php foreach($result as $row) {?>
           <tr>
           <th scope="row"> <?php echo $row->nombre; ?></th>
           <td><?php echo $row->tipo_producto; ?></td>
-
-          <th scope="row"> <?php echo $row->id; ?></th>
-          <td><?php echo $row->nombre; ?></td>
-          <td><?php echo $row->id_tipo_producto; ?></td> 
-          <td><?php echo $row->cantidad; ?></td>
-          <td><?php echo $row->fecha_ingreso; ?></td>
           <td> <a href="<?php echo site_url('producController/edit');?>/<?php echo $row->id;?>"> Editar </a> | 
           <a href="<?php echo site_url('producController/delete');?>/<?php echo $row->id;?>">Eliminar</a></td>
           <?php } ?>
