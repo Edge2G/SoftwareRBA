@@ -9,6 +9,7 @@ class productModel extends CI_Model {
     function createData(){
         $data = array(
             'nombre' => $this->input->post('nombre'),
+
             'tipo_producto' => $this->input->post('tipo_producto'),   
         );
         $this->db->insert('producto', $data);
@@ -26,6 +27,14 @@ class productModel extends CI_Model {
         );
         $this->db->insert('inventario', $data);
     }
+
+            'id_tipo_producto' => $this->input->post('id_tipo_producto'),
+            'cantidad' => $this->input->post('cantidad'),
+            'fecha_ingreso' => $this->input->post('fecha_ingreso')
+        );
+        $this->db->insert('producto', $data);
+    }
+
     
     function getAlldata(){
         $query = $this->db->query('SELECT * FROM producto');
@@ -43,6 +52,9 @@ class productModel extends CI_Model {
             'id' => $this->input->post('id'),
             'nombre' => $this->input->post('nombre'),
             'id_tipo_producto' => $this->input->post('id_tipo_producto'),
+
+            'cantidad' => $this->input->post('cantidad'),
+            'fecha_ingreso' => $this->input->post('fecha_ingreso')
         );
         $this->db->where('id', $id);
         $this->db->update('producto', $data);

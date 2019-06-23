@@ -22,14 +22,21 @@ class CrudController extends CI_Controller {
 	public function __construct(){
 		parent:: __construct();
 		$this->load->model('Crud_model');
+		if($this->session->userdata('login_') !== TRUE){
+      		redirect('Login/login');
+      	}elseif ($this->session->userdata('rol')!=1) {
+      		redirect($this->uri->uri_string());
+      		
+      	}
+		
 	}
-
 	public function index()
 	{
+		
 		$data['result'] = $this->Crud_model->getAlldata();
 		$this->load->view('crud_view',$data);
 	}
-
+		
 	public function create(){
 		$this->Crud_model->createData();
 		redirect("CrudController");

@@ -26,13 +26,27 @@ class Login extends CI_Controller {
 				'id' => $res->id,
 				'nombre' => $res->nombre,
 				'email' => $res->mail,
-				'login' => TRUE
+				'rol' =>$res->rol,
+				'login_' => TRUE
 			);
+			$this->session->set_userdata($data);
 
-			$this ->session->set_userdata($data);
-			redirect('CrudController');
+			if($this->session->userdata("rol") == '1'){ //admin.
+				redirect('CrudController');
+			}elseif($this->session->userdata("rol") == '2'){//Jefe de finanzas 
+				redirect('producController');
+			}else{
+				redirect('Welcome');
+			}
+			
 		}
 	}
+
+	public function Logout(){
+		$this->session->sess_destroy();
+		redirect('login/Login');
+	}
+
 
 }
 

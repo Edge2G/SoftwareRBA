@@ -22,17 +22,26 @@ class producController extends CI_Controller {
 	public function __construct(){
 		parent:: __construct();
 		$this->load->model('productModel');
-	}
 
+		if($this->session->userdata('login_') !== TRUE){
+      		redirect('Login/login');
+      		}elseif ($this->session->userdata('rol')!=2) {
+      		redirect($this->uri->uri_string());
+      	}
+   
+    }
 	public function index()
 	{
 		$data['result'] = $this->productModel->getAlldata();
 		$this->load->view('CrudProducto',$data);
 	}
+
 	public function ingresar(){
 		$this->productModel->ingresarData();
 		redirect("producController");
 	}
+
+
 
 	public function create(){
 		$this->productModel->createData();
@@ -53,5 +62,5 @@ class producController extends CI_Controller {
 		$this->productModel->deleteData($id);
 		redirect("producController");
 	}
-	
-}
+
+

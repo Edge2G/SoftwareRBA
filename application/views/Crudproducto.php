@@ -25,10 +25,23 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+
       <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Crear Producto</a>
       <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal2" href="#">Ingresar Producto</a>
     </div>
   </div>
+
+      <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Ingresar Producto</a>
+    </div>
+  </div>
+  <div class="navbar-collapse collapse w-200 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo site_url('login/Logout');?>">Cerrar Sesion</a>
+            </li>
+        </ul>
+    </div>
+
 </nav>
 	<div class="container">
   <br>
@@ -38,7 +51,11 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
+
               <h5 class="modal-title" id="exampleModalLabel">Crear Producto</h5>
+
+              <h5 class="modal-title" id="exampleModalLabel">Ingresar Producto</h5>
+
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -47,6 +64,7 @@
                   <form method="post" action="<?php echo site_url('producController/create')?>">
                   <div class="form-group">
                     <label for="InputNombre">Nombre Producto</label>
+
                     <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre del producto">
                   </div>
                   <div class="form-group">
@@ -93,6 +111,25 @@
                   </div>
                   <button type="submit" class="btn btn-primary" value="save">Ingresar</button>
                   </form>            </div>
+
+                    <input type="text" class="form-control" name="nombre" placeholder="Escriba aqui la cantidad a ingresar">
+                  </div>
+                  <div class="form-group">
+                    <label for="InputTipo">ID Tipo de Producto</label>
+                    <input type="number" class="form-control" name="id_tipo_producto" aria-describedby="emailHelp" placeholder="Escriba una la fecha de ingreso del productro">
+                  </div> 
+                  <div class="form-group">
+                    <label for="InputCantidad">Cantidad</label>
+                    <input type="number" class="form-control" name="cantidad" aria-describedby="emailHelp" placeholder="Escriba una la fecha de ingreso del productro">
+                  </div>
+                  <div class="form-group">
+                    <label for="InputFecha">Fecha de ingreso</label>
+                    <input type="date" class="form-control" name="fecha_ingreso" aria-describedby="emailHelp" placeholder="Escriba una la fecha de ingreso del productro">                   
+                  </div>
+                  <button type="submit" class="btn btn-primary" value="save">Crear</button>
+                  </form>
+            </div>
+
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -102,12 +139,22 @@
 		<br>
 
 
+
 		<table class="table">
   			<thead>
     			<tr>
 					<th scope="col">Nombre</th>
 					<th scope="col">Tipo Producto</th>
           <th scope="col">Accion</th>
+
+		<table class="table">
+  			<thead>
+    			<tr>
+      		<th scope="col">ID</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Tipo</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Fecha ingreso</th>
     			</tr>
   			</thead>
   			<tbody>
@@ -115,6 +162,12 @@
           <tr>
           <th scope="row"> <?php echo $row->nombre; ?></th>
           <td><?php echo $row->tipo_producto; ?></td>
+
+          <th scope="row"> <?php echo $row->id; ?></th>
+          <td><?php echo $row->nombre; ?></td>
+          <td><?php echo $row->id_tipo_producto; ?></td> 
+          <td><?php echo $row->cantidad; ?></td>
+          <td><?php echo $row->fecha_ingreso; ?></td>
           <td> <a href="<?php echo site_url('producController/edit');?>/<?php echo $row->id;?>"> Editar </a> | 
           <a href="<?php echo site_url('producController/delete');?>/<?php echo $row->id;?>">Eliminar</a></td>
           <?php } ?>
