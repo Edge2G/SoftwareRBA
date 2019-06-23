@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -22,18 +23,20 @@
   <a class="navbar-brand" href="#">Menu de administracion</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-    <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+  <li> </li>
+  <div class="navbar-collapse collapse " id="navbarNavAltMarkup">
+    <div class="nav navbar-nav">
       <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Crear Usuario</a>
     </div>
-   
   </div>
-
-
-
-
+  <div class="navbar-collapse collapse w-200 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo site_url('login/Logout');?>">Cerrar Sesion</a>
+            </li>
+        </ul>
+    </div>
 
 </nav>
 	<div class="container">

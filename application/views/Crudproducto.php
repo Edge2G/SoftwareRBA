@@ -28,6 +28,13 @@
       <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Ingresar Producto</a>
     </div>
   </div>
+  <div class="navbar-collapse collapse w-200 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo site_url('login/Logout');?>">Cerrar Sesion</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 	<div class="container">
   <br>

@@ -22,6 +22,12 @@ class producController extends CI_Controller {
 	public function __construct(){
 		parent:: __construct();
 		$this->load->model('productModel');
+		if($this->session->userdata('login_') !== TRUE){
+      		redirect('Login/login');
+      		}elseif ($this->session->userdata('rol')!=2) {
+      		redirect($this->uri->uri_string());
+      	}
+   
 	}
 
 	public function index()
