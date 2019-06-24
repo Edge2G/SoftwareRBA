@@ -66,7 +66,7 @@
                     <label for="InputTipo">Tipo de Producto</label>
                     <select name="tipo_producto">
                       <option value="materia prima" >Materia Prima</option>
-                      <option  value="producto">Producto Terminado</option>
+                      <option  value="producto terminado">Producto Terminado</option>
                     </select>
                   </div>
                   <button type="submit" class="btn btn-primary" value="save">Crear</button>

@@ -40,15 +40,17 @@
     <div class="container">
     <br>
     <br>
-    <form method="post" action="<?php echo site_url('producContoller/update')?>/<?php echo $row->id?>">
+    <form method="post" action="<?php echo site_url('producController/update')?>/<?php echo $row->id?>">
         <div class="form-group">
-          <label for="InputNombre">Nombre Producto</label>
-          <input type="text" class="form-control" name="nombre"placeholder="Escriba nombre del producto" value=<?php echo $row->nombre;?>>
+        <label for="exampleInputUsername1">Nombre del Producto</label>
+        <input type="text" class="form-control" name="nombre" placeholder="Escriba aqui un nombre de producto" value=<?php echo $row->nombre;?>>
         </div>
         <div class="form-group">
-          <label for="InputTipo">Tipo de Producto</label>
-          <input type="text" class="form-control" name="tipo_producto"placeholder="Escriba tipo de producto" value=<?php echo $row->tipo_producto;?>>
-        </div> 
+          <select name="tipo_producto" value=<?php echo $row->tipo_producto;?>>
+            <option value="materia prima" >Materia Prima</option>
+            <option  value="producto terminado">Producto Terminado</option>
+          </select>
+        </div>
         <button type="submit" class="btn btn-primary" value="save">Editar</button>
     </form>
     </div>
