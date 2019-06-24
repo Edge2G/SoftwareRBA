@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class CrudController extends CI_Controller {
-
 	/**
 	 * Index Page for this controller.
 	 *
@@ -18,7 +16,6 @@ class CrudController extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
 	public function __construct(){
 		parent:: __construct();
 		$this->load->model('Crud_model');
@@ -41,17 +38,14 @@ class CrudController extends CI_Controller {
 		$this->Crud_model->createData();
 		redirect("CrudController");
 	}
-
 	public function edit($id){
 		$data['row'] = $this->Crud_model->getData($id);
 		$this->load->view('crudEdit', $data);
 	}
-
 	public function update($id){
 		$this->Crud_model->updateData($id);
 		redirect("CrudController");
 	}
-
 	public function delete($id){
 		$this->Crud_model->deleteData($id);
 		redirect("CrudController");

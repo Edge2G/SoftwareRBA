@@ -63,7 +63,5 @@ class producController extends CI_Controller {
 	public function Reporte(){
 		$data['result1'] = $this->productModel->reporteData();
 		$this->load->view("reportView",$data);
-
 	}
-
 }
