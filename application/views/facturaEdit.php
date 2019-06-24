@@ -14,12 +14,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Inventario</title>
+    <title>Factura</title>
   </head>
   <body>
   <!-- As a link -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Menu de Inventario</a>
+  <a class="navbar-brand" href="<?php echo site_url('Factura/index')?>">Menu Jefe de Finanzas</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -45,14 +45,22 @@
     <div class="container">
     <br>
     <br>
-    <form method="post" action="<?php echo site_url('producContoller/update')?>/<?php echo $row->id?>">
+    <form method="post" action="<?php echo site_url('Factura/update')?>/<?php echo $row->id?>">
         <div class="form-group">
-          <label for="InputNombre">Nombre Producto</label>
-          <input type="text" class="form-control" name="nombre" placeholder="Escriba aqui la cantidad a ingresar">
+          <label for="InputNombre">Numero factura</label>
+          <input type="number" class="form-control" name="numero_factura" placeholder="Escriba aqui numero factura">
         </div>
         <div class="form-group">
-          <label for="InputTipo">Tipo de Producto</label>
-          <input type="number" class="form-control" name="id_tipo_producto" aria-describedby="emailHelp" placeholder="Escriba una la fecha de ingreso del productro">
+          <label for="InputNombre">ID cliente</label>
+          <input type="number" class="form-control" name="id_cliente" placeholder="Escriba el id cliente">
+        </div>
+        <div class="form-group">
+          <label for="InputNombre">Monto</label>
+          <input type="number" class="form-control" name="monto" placeholder="Escriba monto">
+        </div>
+        <div class="form-group">
+          <label for="InputTipo">Fecha</label>
+          <input type="date" class="form-control" name="fecha" placeholder="Escriba Fecha">
         </div> 
         <button type="submit" class="btn btn-primary" value="save">Editar</button>
     </form>

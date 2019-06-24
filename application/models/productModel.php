@@ -15,26 +15,14 @@ class productModel extends CI_Model {
         $this->db->insert('producto', $data);
     }
     function ingresarData(){
-        $nombre_producto =$this->input->post('nombre_producto');
-        //$query = $this->db->query('SELECT id FROM `producto` WHERE `nombre` = '.$nombre_producto);
-        //$id = $query->result();
-        //$id2 = array_values($id)[0];
-        $id2 = mysql_result(mysql_query('SELECT id FROM `producto` WHERE `nombre` = '.$nombre_producto),0);
+        //$id2 = mysql_result(mysql_query('SELECT id FROM `producto` WHERE `nombre` = '.$nombre_producto),0);
         $data = array(
-            'id_producto' => $this->input->post(isset($id2)),
-            'cantidad'=> $this->input->post('cantidad') ,
+            'id_producto' => $this->input->post('id_producto'),
+            'cantidad'=> $this->input->post('cantidad'),
             'fecha_ingreso'=> $this->input->post('fecha_ingreso')  
         );
         $this->db->insert('inventario', $data);
     }
-
-            'id_tipo_producto' => $this->input->post('id_tipo_producto'),
-            'cantidad' => $this->input->post('cantidad'),
-            'fecha_ingreso' => $this->input->post('fecha_ingreso')
-        );
-        $this->db->insert('producto', $data);
-    }
-
     
     function getAlldata(){
         $query = $this->db->query('SELECT * FROM producto');
@@ -49,12 +37,8 @@ class productModel extends CI_Model {
 
     function updateData($id){
         $data = array(
-            'id' => $this->input->post('id'),
             'nombre' => $this->input->post('nombre'),
-            'id_tipo_producto' => $this->input->post('id_tipo_producto'),
-
-            'cantidad' => $this->input->post('cantidad'),
-            'fecha_ingreso' => $this->input->post('fecha_ingreso')
+            'tipo_producto' => $this->input->post('tipo_producto'),
         );
         $this->db->where('id', $id);
         $this->db->update('producto', $data);
@@ -63,5 +47,9 @@ class productModel extends CI_Model {
     function deleteData($id){
         $this->db->where('id', $id);
         $this->db->delete('producto');
+    }
+    function reporteData(){
+        $query = $this->db->query('SELECT producto.nombre,SUM(inventario.cantidad) as stock FROM producto JOIN inventario WHERE producto.id=inventario.id_producto GROUP BY producto.nombre');
+        return $query->result();
     }
 }

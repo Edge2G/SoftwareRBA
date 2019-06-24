@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -14,23 +15,29 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Inventario</title>
+    <title>Jefe de Finanzas</title>
   </head>
   <body>
 	<!-- As a link -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand"data-toggle="link" href="<?php echo site_url('producController/index')?>">Menu de Inventario</a>
+  <a class="navbar-brand" href="<?php echo site_url('Factura/index')?>">Menu Jefe de Finanzas</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-
-      <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Crear Producto</a>
-      <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal2" href="#">Ingresar Producto</a>
-      <a class="nav-item nav-link" data-toggle="link" data-target="#exampleModal3" href="<?php echo site_url('producController/Reporte')?>">Generar Reporte</a>
+  <li> </li>
+  <div class="navbar-collapse collapse " id="navbarNavAltMarkup">
+    <div class="nav navbar-nav">
+      <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal2" href="#">Crear Cliente</a>
+      <a class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Crear Factura</a>
+      
+      <li class="nav-item ">
+        <a class="nav-link" href="<?php echo site_url('Factura/verFact')?>">Ver Facturas </a>
+      </li>
     </div>
-    <div class="navbar-collapse collapse w-200 order-3 dual-collapse2">
+    
+  </div>
+
+  <div class="navbar-collapse collapse w-200 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('login/Logout');?>">Cerrar Sesion</a>
@@ -47,91 +54,79 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Crear Producto</h5>
-
-              <h5 class="modal-title" id="exampleModalLabel">Ingresar Producto</h5>
-
+              <h5 class="modal-title" id="exampleModalLabel">Crear Factura</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-                  <form method="post" action="<?php echo site_url('producController/create')?>">
+                  <form method="post" action="<?php echo site_url('Factura/create')?>">
                   <div class="form-group">
-                    <label for="InputNombre">Nombre Producto</label>
-
-                    <input type="text" class="form-control" name="nombre" placeholder="Escriba el nombre del producto">
+                    <label for="#">Numero de factura</label>
+                    <input type="number" class="form-control" name="numero_factura" placeholder="Escriba aqui el numero de factura">
                   </div>
                   <div class="form-group">
-                    <label for="InputTipo">Tipo de Producto</label>
-                    <select name="tipo_producto">
-                      <option value="materia prima" >Materia Prima</option>
-                      <option  value="producto">Producto Terminado</option>
+                    <label for="#">Cliente</label>
+                    <br>
+                    <select name="id_cliente">
+                      <option value="1" >Fruna</option>
+                      <option value="2">Fruna Osorno</option>
+                      <option value="3">MejoreConfites</option>
                     </select>
                   </div>
+                  <div class="form-group">
+                    <label for="#">Monto</label>
+                    <input type="number" class="form-control" name="monto"  placeholder="Escriba el monto">
+                  </div>
+                  <div class="form-group">
+                    <label for="#">Fecha</label>
+                    <input type="date" class="form-control" name="fecha" placeholder="Seleccione fecha">
+                  </div>
                   <button type="submit" class="btn btn-primary" value="save">Crear</button>
-                  </form>            </div>
+                </form>
+            </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
-      <!-- Modal 2 -->
-      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+       <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Ingresar Producto</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Crear cliente</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-                  <form method="post" action="<?php echo site_url('producController/ingresar')?>">
+                  <form method="post" action="<?php echo site_url('Factura/createCliente')?>">
                   <div class="form-group">
-                    <label for="InputNombrePorducto">Nombre Producto</label>
-                    <select name="id_producto">
-                      <option value="14" >cuchufli</option>
-                      <option  value="9">manjar</option>
-                      <option value="10">harina</option>
-                      <option value="12">merengue</option>
-                    </select>
+                    <label for="#">ID Cliente</label>
+                    <input type="number" class="form-control" name="id_cliente" placeholder="Escriba ID cliente">
                   </div>
                   <div class="form-group">
-                    <label for="InputCantidad">Cantidad de Producto</label>
-                    <input type="number" min="0" class="form-control" name="cantidad" placeholder="cantidad de producto">
+                    <label for="#">Nombre Cliente</label>
+                    <input type="text" class="form-control" name="nombre_cliente"  placeholder="Escriba Nombre cliente">
                   </div>
                   <div class="form-group">
-                    <label for="InputFecha">Fecha Ingreso de Producto</label>
-                    <input type="date" class="form-control" name="fecha_ingreso" placeholder="fecha de ingreso">
+                    <label for="#">Rut</label>
+                    <input type="text" class="form-control" name="rut" placeholder="Escriba rut">
                   </div>
-                  <button type="submit" class="btn btn-primary" value="save">Ingresar</button>
-                  </form>         
+                  <button type="submit" class="btn btn-primary" value="save">Crear</button>
+                </form>
+            </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-		<table class="table">
-  			<thead>
-    			<tr>
-					<th scope="col">Nombre</th>
-					<th scope="col">Tipo Producto</th>
-          <th scope="col">Accion</th>
-  			</thead>
-					<?php foreach($result as $row) {?>
-          <tr>
-          <td> <?php echo $row->nombre; ?></td>
-          <td><?php echo $row->tipo_producto; ?></td>
-          <td> <a href="<?php echo site_url('producController/edit');?>/<?php echo $row->id;?>"> Editar </a> | 
-          <a href="<?php echo site_url('producController/delete');?>/<?php echo $row->id;?>">Eliminar</a></td>
-          <?php } ?>
- 			 </tbody>
-		</table>
+		<br>
+    <H1>BIENVENIDO JEFE DE FINANZAAAS! </H1>
 	</div>
 </body>
 </html>
