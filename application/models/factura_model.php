@@ -15,30 +15,39 @@ class Factura_model extends CI_Model {
         );
         $this->db->insert('factura', $data);
     }
+    function createCliente(){
+        $data = array(
+            'id' => $this->input->post('id_cliente'),
+            'nombre_cliente' => $this->input->post('nombre_cliente'),
+            'rut' => $this->input->post('rut')
+        );
+        $this->db->insert('cliente', $data);
+    }
     
     function getAlldata(){
-        $query = $this->db->query('SELECT * FROM factura');
+        $query = $this->db->query('SELECT * FROM factura order by fecha');
         return $query ->result();
 
     }
 
     function getData($id){
-        $query = $this->db->query('SELECT * FROM usuarios WHERE `id` = '.$id);
+        $query = $this->db->query('SELECT * FROM factura WHERE `id` = '.$id);
         return $query->row();
     }
 
     function updateData($id){
         $data = array(
-            'nombre' => $this->input->post('nombre'),
-            'password' => $this->input->post('password'),
-            'mail' => $this->input->post('mail')
+            'numero_factura' => $this->input->post('numero_factura'),
+            'id_cliente' => $this->input->post('id_cliente'),
+            'monto' => $this->input->post('monto'),
+            'fecha' => $this->input->post('fecha')
         );
         $this->db->where('id', $id);
-        $this->db->update('usuarios', $data);
+        $this->db->update('factura', $data);
     }
 
     function deleteData($id){
         $this->db->where('id', $id);
-        $this->db->delete('usuarios');
+        $this->db->delete('factura');
     }
 }

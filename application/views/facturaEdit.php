@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -15,60 +14,56 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Jefe de Finanzas</title>
+    <title>Factura</title>
   </head>
   <body>
-	<!-- As a link -->
+  <!-- As a link -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="<?php echo site_url('Factura/index')?>">Menu Jefe de Finanzas</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <li> </li>
-  <div class="navbar-collapse collapse " id="navbarNavAltMarkup">
-    <div class="nav navbar-nav">
-      
-      <li class="nav-item ">
-        <a class="nav-link" href="#">Ver Facturas </a>
-      </li>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+
+
     </div>
-    
   </div>
 
+    </div>
+  </div>
   <div class="navbar-collapse collapse w-200 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('login/Logout');?>">Cerrar Sesion</a>
             </li>
         </ul>
-    </div>
+  </div>
+  
 
 </nav>
-	<div class="container">
-  <br>
-  <br>
-  <table class="table">
-        <thead>
-          <tr>
-          <th scope="col">id</th>
-          <th scope="col">Numero factura</th>
-          <th scope="col">Id cliente</th>
-          <th scope="col">Monto</th>
-          <th scope="col">Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach($result as $row) {?>
-          <tr>
-          <th scope="row"> <?php echo $row->id; ?></th>
-          <td><?php echo $row->numero_factura; ?></td>
-          <td><?php echo $row->id_cliente; ?></td>
-          <td><?php echo $row->monto; ?></td>
-          <td><?php echo $row->fecha; ?></td>
-          <td> <a href="<?php echo site_url('Factura/edit');?>/<?php echo $row->id;?>"> Editar </a> | 
-          <a href="<?php echo site_url('Factura/delete');?>/<?php echo $row->id;?>">Eliminar</a></td>
-          <?php } ?>
-       </tbody>
-    </table>
-</body>
+    <div class="container">
+    <br>
+    <br>
+    <form method="post" action="<?php echo site_url('Factura/update')?>/<?php echo $row->id?>">
+        <div class="form-group">
+          <label for="InputNombre">Numero factura</label>
+          <input type="number" class="form-control" name="numero_factura" placeholder="Escriba aqui numero factura">
+        </div>
+        <div class="form-group">
+          <label for="InputNombre">ID cliente</label>
+          <input type="number" class="form-control" name="id_cliente" placeholder="Escriba el id cliente">
+        </div>
+        <div class="form-group">
+          <label for="InputNombre">Monto</label>
+          <input type="number" class="form-control" name="monto" placeholder="Escriba monto">
+        </div>
+        <div class="form-group">
+          <label for="InputTipo">Fecha</label>
+          <input type="date" class="form-control" name="fecha" placeholder="Escriba Fecha">
+        </div> 
+        <button type="submit" class="btn btn-primary" value="save">Editar</button>
+    </form>
+    </div>
+  </body>
 </html>

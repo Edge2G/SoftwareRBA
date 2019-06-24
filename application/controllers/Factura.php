@@ -37,18 +37,27 @@ class Factura extends CI_Controller {
 	 	$this->factura_model->createData();
 	 	redirect("Factura");
 	 }
+	 public function createCliente(){
+	 	$this->factura_model->createCliente();
+	 	redirect("Factura");
+	 }
 
 	 public function verFact(){
 
 	 	$data['result'] = $this->factura_model->getAlldata();
 	 	$this->load->view("VerFactura",$data);
 	 }
-
-	 public function edit(){
-
+	 public function update($id){
+		$this->factura_model->updateData($id);
+		redirect("Factura/verFact");
+	}
+	 public function edit($id){
+	 	$data['row'] = $this->factura_model->getData($id);
+		$this->load->view('facturaEdit', $data);
 	 }
 
-	 public function delete(){
-
+	 public function delete($id){
+	 	$this->factura_model->deleteData($id);
+		redirect("Factura/verFact");
 	 }
 }
