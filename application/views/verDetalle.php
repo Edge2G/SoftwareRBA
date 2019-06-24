@@ -29,7 +29,7 @@
     <div class="nav navbar-nav">
       
       <li class="nav-item ">
-        <a class="nav-link" href="#">Ver Facturas </a>
+        <a class="nav-link" href="<?php echo site_url('Factura/verFact')?>">Ver Facturas </a>
       </li>
     </div>
     
@@ -50,24 +50,17 @@
   <table class="table">
         <thead>
           <tr>
-          <th scope="col">id</th>
+          <th scope="col">Nombre producto</th>
+          <th scope="col">Cantidad </th>
           <th scope="col">Numero factura</th>
-          <th scope="col">Id cliente</th>
-          <th scope="col">Monto</th>
-          <th scope="col">Fecha</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach($result as $row) {?>
           <tr>
-          <th scope="row"> <?php echo $row->id; ?></th>
+          <th scope="row"> <?php echo $row->nombre; ?></th>
+          <td><?php echo $row->cantidad_producto; ?></td>
           <td><?php echo $row->numero_factura; ?></td>
-          <td><?php echo $row->id_cliente; ?></td>
-          <td><?php echo $row->monto; ?></td>
-          <td><?php echo $row->fecha; ?></td>
-          <td> <a href="<?php echo site_url('Factura/edit');?>/<?php echo $row->id;?>"> Editar </a> | 
-               <a href="<?php echo site_url('Factura/delete');?>/<?php echo $row->id;?>">Eliminar</a> |
-               <a href="<?php echo site_url('Factura/detalle');?>/<?php echo $row->id;?>">Detalle</a></td>
           <?php } ?>
        </tbody>
     </table>

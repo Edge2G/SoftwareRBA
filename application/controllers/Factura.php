@@ -42,11 +42,16 @@ class Factura extends CI_Controller {
 	 	redirect("Factura");
 	 }
 
-	 public function verFact(){
+	 public function detalle($id){
+	 	$data['result'] = $this->factura_model->getDetalle($id);
+	 	$this->load->view('verDetalle',$data);
+	 }
 
+	 public function verFact(){
 	 	$data['result'] = $this->factura_model->getAlldata();
 	 	$this->load->view("VerFactura",$data);
 	 }
+
 	 public function update($id){
 		$this->factura_model->updateData($id);
 		redirect("Factura/verFact");

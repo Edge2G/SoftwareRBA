@@ -27,7 +27,11 @@ class Factura_model extends CI_Model {
     function getAlldata(){
         $query = $this->db->query('SELECT * FROM factura order by fecha');
         return $query ->result();
+    }
 
+    function getDetalle($id){
+         $query = $this->db->query('SELECT producto.nombre,factura_detalle.cantidad_producto,factura.numero_factura FROM factura_detalle,factura,producto where factura.id=factura_detalle.id_factura and factura_detalle.id_producto=producto.id and factura.id='.$id);
+         return $query->result();
     }
 
     function getData($id){
