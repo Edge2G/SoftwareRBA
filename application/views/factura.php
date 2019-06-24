@@ -126,7 +126,6 @@
       </div>
 
 		<br>
-    <H1>BIENVENIDO JEFE DE FINANZAAAS! </H1>
 	</div>
 </body>
 </html>

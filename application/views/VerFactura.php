@@ -55,6 +55,7 @@
           <th scope="col">Id cliente</th>
           <th scope="col">Monto</th>
           <th scope="col">Fecha</th>
+          <th scope="col">Accion</th>
           </tr>
         </thead>
         <tbody>
