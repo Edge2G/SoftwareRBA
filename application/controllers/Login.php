@@ -34,14 +34,14 @@ class Login extends CI_Controller {
 			if($this->session->userdata("rol") == '1'){ //admin.
 				redirect('crudController');
 			}elseif($this->session->userdata("rol") == '2'){//Jefe de finanzas 
+
 				redirect('Factura');
-			}else{
-				redirect('producController'); // JEFE INVENTARIO
+			}elseif($this->session->userdata("rol") == '3'){//Jefe de Inventario 
+				redirect('producController');
 			}
 
 		}
 	}
-
 	public function Logout(){
 		$this->session->sess_destroy();
 		redirect('login/Login');

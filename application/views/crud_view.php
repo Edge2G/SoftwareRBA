@@ -20,7 +20,7 @@
   <body>
 	<!-- As a link -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Menu de administracion</a>
+  <a class="navbar-brand" data-toggle="link" href="<?php echo site_url('CrudController/index')?>">Menu de administracion</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -66,6 +66,10 @@
                     <label for="exampleInputEmail1">Correo electronico</label>
                     <input type="email" class="form-control" name="mail" aria-describedby="emailHelp" placeholder="Escriba una direccion de correo electronico">
                     <small id="emailHelp" class="form-text text-muted">Los correos no son compartidos con nadie.</small>
+                  </div>                  
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">rol</label>
+                    <input type="number" min="1" max="3" class="form-control" name="rol" placeholder="Ingrese un Rol siendo 1)admin;2)Jefe Finanzas;3)Jefe Inventario">
                   </div>
                   <button type="submit" class="btn btn-primary" value="save">Crear</button>
                 </form>
@@ -81,25 +85,45 @@
 		<table class="table">
   			<thead>
     			<tr>
-      		<th scope="col">id</th>
 					<th scope="col">Nombre</th>
-					<th scope="col">Contraseña</th>
 					<th scope="col">Mail</th>
+          <th scope="col">Rol</th>
           <th scope="col">Accion</th>
     			</tr>
   			</thead>
   			<tbody>
 					<?php foreach($result as $row) {?>
           <tr>
-          <th scope="row"> <?php echo $row->id; ?></th>
           <td><?php echo $row->nombre; ?></td>
-          <td><?php echo $row->password; ?></td>
           <td><?php echo $row->mail; ?></td>
+          <td><?php echo $row->rol; ?></td>
           <td> <a href="<?php echo site_url('CrudController/edit');?>/<?php echo $row->id;?>"> Editar </a> | 
           <a href="<?php echo site_url('CrudController/delete');?>/<?php echo $row->id;?>">Eliminar</a></td>
           <?php } ?>
  			 </tbody>
 		</table>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Rol        |</th>
+          <th>Tipo de Rol</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1    </td>
+          <td>Administrador</td>
+        </tr>
+        <tr>
+          <td>2    </td>
+          <td>Jefe Finanzas</td>
+        </tr>
+        <tr>
+          <td>3    </td>
+          <td>Jefe Inventario</td>
+        </tr>
+      </tbody>
+    </table>   
 	</div>
 </body>
 </html>

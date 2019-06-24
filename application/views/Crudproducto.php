@@ -47,7 +47,6 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-
               <h5 class="modal-title" id="exampleModalLabel">Crear Producto</h5>
 
               <h5 class="modal-title" id="exampleModalLabel">Ingresar Producto</h5>
@@ -93,19 +92,19 @@
                   <div class="form-group">
                     <label for="InputNombrePorducto">Nombre Producto</label>
                     <select name="id_producto">
-                      <option value="8" >cuchufli</option>
+                      <option value="14" >cuchufli</option>
                       <option  value="9">manjar</option>
                       <option value="10">harina</option>
-                      <option value="11">merengue</option>
+                      <option value="12">merengue</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="InputCantidad">Cantidad de Producto</label>
-                    <input type="number" min="0" class="form-control" name="cantidad" placeholder="Escriba el nombre del producto">
+                    <input type="number" min="0" class="form-control" name="cantidad" placeholder="cantidad de producto">
                   </div>
                   <div class="form-group">
                     <label for="InputFecha">Fecha Ingreso de Producto</label>
-                    <input type="date" class="form-control" name="fecha_ingreso" placeholder="Escriba el nombre del producto">
+                    <input type="date" class="form-control" name="fecha_ingreso" placeholder="fecha de ingreso">
                   </div>
                   <button type="submit" class="btn btn-primary" value="save">Ingresar</button>
                   </form>         
@@ -126,7 +125,7 @@
   			</thead>
 					<?php foreach($result as $row) {?>
           <tr>
-          <th scope="row"> <?php echo $row->nombre; ?></th>
+          <td> <?php echo $row->nombre; ?></td>
           <td><?php echo $row->tipo_producto; ?></td>
           <td> <a href="<?php echo site_url('producController/edit');?>/<?php echo $row->id;?>"> Editar </a> | 
           <a href="<?php echo site_url('producController/delete');?>/<?php echo $row->id;?>">Eliminar</a></td>

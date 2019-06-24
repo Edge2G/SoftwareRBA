@@ -10,7 +10,8 @@ class Crud_model extends CI_Model {
         $data = array(
             'nombre' => $this->input->post('nombre'),
             'password' => $this->input->post('password'),
-            'mail' => $this->input->post('mail')
+            'mail' => $this->input->post('mail'),
+            'rol' => $this ->input->post('rol'),
         );
         $this->db->insert('usuarios', $data);
     }
@@ -30,7 +31,8 @@ class Crud_model extends CI_Model {
         $data = array(
             'nombre' => $this->input->post('nombre'),
             'password' => $this->input->post('password'),
-            'mail' => $this->input->post('mail')
+            'mail' => $this->input->post('mail'),
+            'rol' => $this ->input->post('rol'),
         );
         $this->db->where('id', $id);
         $this->db->update('usuarios', $data);

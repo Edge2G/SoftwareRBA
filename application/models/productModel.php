@@ -37,12 +37,8 @@ class productModel extends CI_Model {
 
     function updateData($id){
         $data = array(
-            'id' => $this->input->post('id'),
             'nombre' => $this->input->post('nombre'),
-            'id_tipo_producto' => $this->input->post('id_tipo_producto'),
-
-            'cantidad' => $this->input->post('cantidad'),
-            'fecha_ingreso' => $this->input->post('fecha_ingreso')
+            'tipo_producto' => $this->input->post('tipo_producto'),
         );
         $this->db->where('id', $id);
         $this->db->update('producto', $data);

@@ -19,7 +19,7 @@
   <body>
   <!-- As a link -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Menu de administracion</a>
+  <a class="navbar-brand" data-toggle="link" href="<?php echo site_url('CrudController/index')?>">Menu de administracion</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -39,12 +39,16 @@
         </div>
         <div class="form-group">
         <label for="exampleInputPassword1">Contraseña</label>
-        <input type="text" class="form-control" name="password" placeholder="Escriba aqui una contraseña" value=<?php echo $row->password;?>>
+        <input type="password" class="form-control" name="password" placeholder="Escriba aqui una contraseña" value=<?php echo $row->password;?>>
         </div>
         <div class="form-group">
         <label for="exampleInputEmail1">Correo electronico</label>
         <input type="email" class="form-control" name="mail" aria-describedby="emailHelp" placeholder="Escriba una direccion de correo electronico" value=<?php echo $row->mail;?>>
         <small id="emailHelp" class="form-text text-muted">Los correos no son compartidos con nadie.</small>
+        </div>
+        <div class="form-group">
+        <label for="exampleInputPassword1">Rol</label>
+        <input type="number" class="form-control" name="rol" placeholder="Escriba aqui una contraseña" value=<?php echo $row->rol;?>>
         </div>
         <button type="submit" class="btn btn-primary" value="save">Editar</button>
     </form>

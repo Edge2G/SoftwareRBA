@@ -47,7 +47,7 @@ class producController extends CI_Controller {
 
 	public function edit($id){
 		$data['row'] = $this->productModel->getData($id);
-		$this->load->view('productView', $data);
+		$this->load->view('productEdit', $data);
 	}
 
 	public function update($id){
@@ -58,11 +58,10 @@ class producController extends CI_Controller {
 	public function delete($id){
 		$this->productModel->deleteData($id);
 		redirect("producController");
+
 	}
 	public function Reporte(){
 		$data['result1'] = $this->productModel->reporteData();
 		$this->load->view("reportView",$data);
-		//redirect("reportView",$data);
 	}
-
 }
